@@ -1,0 +1,103 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Ma page</title>
+
+</head>
+<body>
+<p>form-reserver works!</p>
+
+<div>
+  <h1>Book a Server </h1>
+
+<form [formGroup]="BookForm" (ngSubmit)="onSubmit()">
+
+
+
+
+
+ <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">User</label>
+<select class="form-select"  formControlName="nom">
+
+
+          <option *ngFor="let user of users" [value]="user">{{ user }}</option>
+
+        </select>
+      </div>
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Speciality</label>
+<select class="form-select"  formControlName="specialite" >
+
+  <option *ngFor="let speciality of filterSpecialiteByUser() " [value]="speciality">{{ speciality }}</option>
+</select>
+</div>
+
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Duration</label>
+<select class="form-select"  formControlName="periode">
+  <option selected></option>
+  <option value="2h">2h</option>
+  <option value="4h">4h</option>
+  <option value="6h">6h</option>
+  <option value="8h">8h</option>
+</select>
+</div>
+
+
+
+</div>
+<div class="mb-3">
+  <button (click)="changeServerStatus()" type="submit" class="btn btn-outline-primary">To Book </button>
+</div>
+
+</form>
+</div>
+</body> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Styling</title>
+  <link rel="stylesheet" href="form-reserver.component.css">
+</head>
+<body>
+  <div class="container">
+    <form [formGroup]="BookForm" (ngSubmit)="onSubmit()" class="my-form">
+      <div class="form-group">
+        <label for="user" class="form-label">User</label>
+        <select class="form-control" formControlName="nom">
+          <option *ngFor="let user of users" [value]="user">{{ user }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="speciality" class="form-label">Speciality</label>
+        <select class="form-control" formControlName="specialite">
+          <option *ngFor="let speciality of filterSpecialiteByUser()" [value]="speciality">{{ speciality }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="periode" class="form-label">Duration</label>
+        <select class="form-control" formControlName="periode">
+          <option value="2h">2h</option>
+          <option value="4h">4h</option>
+          <option value="6h">6h</option>
+          <option value="8h">8h</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="!BookForm.valid" (click)="onSubmit" type="submit" class="btn btn-primary">To Book</button>
+        <!-- <button  (click)="changeServerStatus()" type="submit" class="btn btn-primary">To Book</button> -->
+      </div>
+    </form>
+  </div>
+</body>
+</html>

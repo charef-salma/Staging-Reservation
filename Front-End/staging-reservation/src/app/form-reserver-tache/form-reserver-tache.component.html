@@ -1,0 +1,123 @@
+<!-- <p>form-reserver-tache works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ma page</title>
+
+</head>
+<body>
+<p>form-reserver works!</p>
+
+<div>
+  <h1>Book a Server </h1>
+
+<form [formGroup]="BookForm" (ngSubmit)="onSubmit()">
+
+
+
+
+ <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Reserved by </label>
+<select class="form-select"  formControlName="nom">
+
+  <option value="" selected></option>
+          <option *ngFor="let user of users" [value]="user">{{ user }}</option>
+
+        </select>
+      </div>
+
+
+
+
+
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Speciality</label>
+<select class="form-select"  formControlName="specialite" >
+  <option value="" selected></option>
+  <option *ngFor="let speciality of filterSpecialiteByUser() " [value]="speciality">{{ speciality }}</option>
+</select>
+</div>
+
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Duration</label>
+<select class="form-select"  formControlName="periode">
+  <option selected></option>
+  <option value="2h">2h</option>
+  <option value="4h">4h</option>
+  <option value="6h">6h</option>
+  <option value="8h">8h</option>
+</select>
+</div>
+
+<label for="optionalField">Reserved for :</label>
+  <select class="form-select"  formControlName="reserved_for" >
+    <option selected value="Gaetan">Geatan</option>
+</select>
+<div class="mb-3">
+  <button (click)="changeServerStatus()" type="submit" class="btn btn-outline-primary"  >Primary</button>
+</div>
+
+</form>
+</div>
+</body> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ma page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Styling</title>
+<link rel="stylesheet" href="form-reserver-tache.component.css">
+</head>
+<body>
+<div class="container">
+<!-- <body> -->
+  <!-- <p>form-reserver works!</p>
+
+  <div>
+    <h1>Book a Server</h1> -->
+
+    <form [formGroup]="BookForm" (ngSubmit)="onSubmit()" class="my-form">
+      <div class="form-group">
+        <label for="user" class="form-label">Reserved by</label>
+        <select class="form-control" formControlName="nom">
+          <option *ngFor="let user of users" [value]="user">{{ user }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="speciality" class="form-label">Speciality</label>
+        <select class="form-control" formControlName="specialite">
+          <option *ngFor="let speciality of filterSpecialiteByUser()" [value]="speciality">{{ speciality }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlInput1" class="form-label">Duration</label>
+        <select class="form-control" formControlName="periode">
+          <option value="1 day">1 day </option>
+          <option value="2 days">2 days </option>
+          <option value="4 days ">4 days </option>
+          <option value="1 week">1 week </option>
+        </select>
+      </div>
+
+      <label for="optionalField" class="form-label">Reserved for</label>
+      <select class="form-control" formControlName="reserved_for">
+        <option selected value="Gaetan">Geatan</option>
+      </select>
+
+      <div class="form-group">
+        <button [disabled]="!BookForm.valid" (click)="onSubmit" type="submit" class="btn btn-primary">To Book</button>
+
+        <!-- <button (click)="changeServerStatus()" type="submit" class="btn btn-outline-primary">To Book </button> -->
+      </div>
+
+    </form>
+  </div>
+</body>
+</html>
