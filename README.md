@@ -168,7 +168,7 @@ $ rails db:create
 ## Usage
 
 ```bash
-git clone "git@github.com:apprentus/staging_reservation.git"
+git clone "https://github.com/charef-salma/Staging-Reservation.git"
 ```
     
 
